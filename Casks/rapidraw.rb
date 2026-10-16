@@ -26,9 +26,9 @@ cask "rapidraw" do
   end
 
   zap trash: [
-    "~/Library/Application Support/com.rapidraw.app",
-    "~/Library/Caches/com.rapidraw.app",
-    "~/Library/Preferences/com.rapidraw.app.plist",
-    "~/Library/WebKit/com.rapidraw.app",
+    "~/Library/Application Support/io.github.CyberTimon.RapidRAW",
+    "~/Library/Caches/io.github.CyberTimon.RapidRAW",
+    "~/Library/Preferences/io.github.CyberTimon.RapidRAW.plist",
+    "~/Library/WebKit/io.github.CyberTimon.RapidRAW",
   ]
 end
