@@ -55,8 +55,8 @@ jobs:
           intel_token="$(sed -n 's/^  arch .*intel: "\([^"]*\)".*/\1/p' Casks/rapidraw.rb)"
           [ -n "$arm_token" ] && [ -n "$intel_token" ] || { echo "Could not read arch tokens" >&2; exit 1; }
 
-          curl -fsSL -o arm.dmg "${base}/02_RapidRAW_v${LATEST}_${arm_token}.dmg"
-          curl -fsSL -o intel.dmg "${base}/02_RapidRAW_v${LATEST}_${intel_token}.dmg"
+          curl -fsSL -o arm.dmg "${base}/02_RapidRAW_v${LATEST}_macos-${arm_token}.dmg"
+          curl -fsSL -o intel.dmg "${base}/02_RapidRAW_v${LATEST}_macos-${intel_token}.dmg"
           arm_sha="$(sha256sum arm.dmg | cut -d' ' -f1)"
           intel_sha="$(sha256sum intel.dmg | cut -d' ' -f1)"
           rm -f arm.dmg intel.dmg
