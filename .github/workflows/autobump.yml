@@ -7,7 +7,7 @@ on:
         description: Casks to bump (defaults to rapidraw)
         required: false
   schedule:
-    - cron: "15 */2 * * *"
+    - cron: "0 4 * * *"
 
 permissions:
   contents: read
