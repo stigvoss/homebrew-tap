@@ -1,0 +1,37 @@
+name: Bump rapidraw cask on schedule or request
+
+on:
+  workflow_dispatch:
+    inputs:
+      casks:
+        description: Casks to bump (defaults to rapidraw)
+        required: false
+  schedule:
+    - cron: "15 */2 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  autobump:
+    environment: github_actions
+    runs-on: macos-latest
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@848c272c7bfe984a197bd4d16383f4c106ec61e6
+        with:
+          cask: false
+          core: false
+          test-bot: false
+
+      - name: Configure Git user
+        uses: Homebrew/actions/git-user-config@848c272c7bfe984a197bd4d16383f4c106ec61e6
+        with:
+          username: ${{ (github.event_name == 'workflow_dispatch' && github.actor) || 'github-actions[bot]' }}
+
+      - name: Bump rapidraw
+        uses: Homebrew/actions/bump-packages@848c272c7bfe984a197bd4d16383f4c106ec61e6
+        continue-on-error: true
+        with:
+          token: ${{ secrets.AUTOBUMP_TOKEN }}
+          casks: ${{ github.event.inputs.casks || 'rapidraw' }}
