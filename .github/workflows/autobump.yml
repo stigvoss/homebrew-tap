@@ -30,7 +30,7 @@ jobs:
           username: ${{ (github.event_name == 'workflow_dispatch' && github.actor) || 'github-actions[bot]' }}
 
       - name: Bump rapidraw
-        uses: Homebrew/actions/bump-packages@848c272c7bfe984a197bd4d16383f4c106ec61e6
+        uses: Homebrew/actions/bump-packages@2026.10.12.1
         continue-on-error: true
         with:
           token: ${{ secrets.AUTOBUMP_TOKEN }}
