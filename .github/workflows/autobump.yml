@@ -18,19 +18,19 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@848c272c7bfe984a197bd4d16383f4c106ec61e6
+        uses: Homebrew/actions/setup-homebrew@2026.10.12.1
         with:
           cask: false
           core: false
           test-bot: false
 
       - name: Configure Git user
-        uses: Homebrew/actions/git-user-config@848c272c7bfe984a197bd4d16383f4c106ec61e6
+        uses: Homebrew/actions/git-user-config@2026.10.12.1
         with:
           username: ${{ (github.event_name == 'workflow_dispatch' && github.actor) || 'github-actions[bot]' }}
 
       - name: Bump rapidraw
-        uses: Homebrew/actions/bump-packages@848c272c7bfe984a197bd4d16383f4c106ec61e6
+        uses: Homebrew/actions/bump-packages@2026.10.12.1
         continue-on-error: true
         with:
           token: ${{ secrets.AUTOBUMP_TOKEN }}
