@@ -33,5 +33,5 @@ jobs:
         uses: Homebrew/actions/bump-packages@848c272c7bfe984a197bd4d16383f4c106ec61e6
         continue-on-error: true
         with:
-          token: ${{ secrets.BOT_TOKEN }}
+          token: ${{ secrets.AUTOBUMP_TOKEN }}
           casks: ${{ github.event.inputs.casks || 'rapidraw' }}
