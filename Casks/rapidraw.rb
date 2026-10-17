@@ -20,9 +20,9 @@ cask "rapidraw" do
   app "RapidRAW.app"
 
   postflight_steps do
-    system_command "/usr/bin/xattr",
-                   args: ["-d", "com.apple.quarantine", "#{appdir}/RapidRAW.app"],
-                   sudo: false
+    run "/usr/bin/xattr",
+        args: ["-d", "com.apple.quarantine", "{{appdir}}/RapidRAW.app"],
+        sudo: false
   end
 
   zap trash: [
