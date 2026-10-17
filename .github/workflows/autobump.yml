@@ -22,7 +22,6 @@ jobs:
         with:
           cask: false
           core: false
-          test-bot: false
 
       - name: Configure Git user
         uses: Homebrew/actions/git-user-config@2026.10.12.1
