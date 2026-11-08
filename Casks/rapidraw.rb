@@ -1,5 +1,5 @@
 cask "rapidraw" do
-  arch arm: "14_aarch64", intel: "15-intel_x64"
+  arch arm: "15_aarch64", intel: "15-intel_x64"
 
   version "1.6.7"
   sha256 arm:   "b3e9c3883686bff3209680bd2e4149b5dfb73df94ed788ec91cf8b3755d1bbca",
