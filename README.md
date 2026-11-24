@@ -5,11 +5,12 @@ Personal Homebrew tap.
 ```sh
 brew tap stigvoss/tap
 brew install --cask stigvoss/tap/rapidraw
+brew install --cask stigvoss/tap/solidcraft
 ```
 
-Homebrew autobump checks the `rapidraw` cask for updates every two hours via
+Homebrew autobump checks the `rapidraw` and `solidcraft` casks for updates every two hours via
 `.github/workflows/autobump.yml`. The workflow can also be run manually
-with an optional `casks` input (defaults to `rapidraw`). It requires an `AUTOBUMP_TOKEN`
+with an optional `casks` input (defaults to both casks). It requires an `AUTOBUMP_TOKEN`
 secret with permissions to push updates and open pull requests.
 
 ## Autobump permissions setup
@@ -32,7 +33,7 @@ secret with permissions to push updates and open pull requests.
    use `AUTOBUMP_TOKEN`, not the default `GITHUB_TOKEN`, so neither read/write workflow
    permissions nor **Allow GitHub Actions to create and approve pull requests**
    is required for the default token.
-5. Run **Bump rapidraw cask on schedule or request** from the **Actions** tab to
-   verify access. Check the **Bump rapidraw** step's logs even if the run is
+5. Run **Bump casks on schedule or request** from the **Actions** tab to
+   verify access. Check the **Bump casks** step's logs even if the run is
    green: bump errors are allowed by `continue-on-error`. Rotate the secret
    before its token expires.

@@ -1,10 +1,10 @@
-name: Bump rapidraw cask on schedule or request
+name: Bump casks on schedule or request
 
 on:
   workflow_dispatch:
     inputs:
       casks:
-        description: Casks to bump (defaults to rapidraw)
+        description: Casks to bump (defaults to rapidraw and solidcraft)
         required: false
   schedule:
     - cron: "0 4 * * *"
@@ -28,9 +28,9 @@ jobs:
         with:
           username: ${{ (github.event_name == 'workflow_dispatch' && github.actor) || 'github-actions[bot]' }}
 
-      - name: Bump rapidraw
+      - name: Bump casks
         uses: Homebrew/actions/bump-packages@2026.10.12.1
         continue-on-error: true
         with:
           token: ${{ secrets.AUTOBUMP_TOKEN }}
-          casks: ${{ github.event.inputs.casks || 'rapidraw' }}
+          casks: ${{ github.event.inputs.casks || 'rapidraw solidcraft' }}
